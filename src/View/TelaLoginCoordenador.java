@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Controller.ControleCoordenador;
+import Controller.ControlerAdministrador;
 import dao.CoordenadorDAO;
 
 import javax.swing.JLabel;
@@ -20,6 +21,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JCheckBox;
 
 public class TelaLoginCoordenador extends JFrame {
 
@@ -45,6 +47,7 @@ public class TelaLoginCoordenador extends JFrame {
 				try {
 					TelaLoginCoordenador frame = new TelaLoginCoordenador();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -81,22 +84,35 @@ public class TelaLoginCoordenador extends JFrame {
 		SenhaField.setBounds(128, 118, 208, 27);
 		contentPane.add(SenhaField);
 		
+		JCheckBox CheckBoxAdministrador = new JCheckBox("Administrador");
+		CheckBoxAdministrador.setBounds(56, 28, 123, 23);
+		contentPane.add(CheckBoxAdministrador);
+		
 		//BOTÃO LOGIN
 		JButton LoginBtn = new JButton("Login");
 		LoginBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+			if(CheckBoxAdministrador.isSelected()) {
 				String senha = new String(SenhaField.getPassword());
-				//Cria um Controlador para tirar a responsabilidade da autenticação da Tela
-				ControleCoordenador controle = new ControleCoordenador();
-				//Chama o Método autenticar do controle de coordenador e se for verdadeiro ele fecha a tela de login
+				ControlerAdministrador controle = new ControlerAdministrador();
 				if(controle.autenticar(UsuarioTextField.getText(), senha)) {
 					dispose();
+			     }
+				}else {
+					String senha = new String(SenhaField.getPassword());
+					//Cria um Controlador para tirar a responsabilidade da autenticação da Tela
+					ControleCoordenador controle = new ControleCoordenador();
+					//Chama o Método autenticar do controle de coordenador e se for verdadeiro ele fecha a tela de login
+					if(controle.autenticar(UsuarioTextField.getText(), senha)) {
+						dispose();
 				}
 				
 			}
+			}
 		});
+		
 		LoginBtn.setBounds(161, 170, 109, 33);
 		contentPane.add(LoginBtn);
+		
 	}
 }

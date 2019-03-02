@@ -29,12 +29,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaAdministrador extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField NomeCoordenadorTextField;
-	private JTextField textField;
+	private JTextField NumeroBuscarLaboratorioTextField;
 	private JTable JTableCoordenadores;
 	private JTextField UsárioCoordenadorField;
 	private JTextField SenhaCoordenadorField;
@@ -92,29 +94,29 @@ public class TelaAdministrador extends JFrame {
 		contentPane.add(lblCoordenador);
 		
 		JLabel BuscarLabel = new JLabel("Buscar:");
-		BuscarLabel.setBounds(110, 65, 53, 14);
+		BuscarLabel.setBounds(51, 65, 53, 14);
 		contentPane.add(BuscarLabel);
 		
 		NomeCoordenadorTextField = new JTextField();
-		NomeCoordenadorTextField.setBounds(161, 62, 197, 20);
+		NomeCoordenadorTextField.setBounds(114, 62, 197, 20);
 		contentPane.add(NomeCoordenadorTextField);
 		NomeCoordenadorTextField.setColumns(10);
 		
 		JButton BuscarCoordenadorBtn = new JButton("Buscar");
-		BuscarCoordenadorBtn.setBounds(368, 61, 89, 23);
+		BuscarCoordenadorBtn.setBounds(321, 61, 89, 23);
 		contentPane.add(BuscarCoordenadorBtn);
 		
 		JLabel lblBuscar = new JLabel("Buscar:");
-		lblBuscar.setBounds(825, 61, 46, 14);
+		lblBuscar.setBounds(715, 65, 46, 14);
 		contentPane.add(lblBuscar);
 		
-		textField = new JTextField();
-		textField.setBounds(874, 58, 197, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		NumeroBuscarLaboratorioTextField = new JTextField();
+		NumeroBuscarLaboratorioTextField.setBounds(771, 62, 197, 20);
+		contentPane.add(NumeroBuscarLaboratorioTextField);
+		NumeroBuscarLaboratorioTextField.setColumns(10);
 		
 		JButton BuscarAdministradorBtn = new JButton("Buscar");
-		BuscarAdministradorBtn.setBounds(1081, 57, 89, 23);
+		BuscarAdministradorBtn.setBounds(996, 61, 89, 23);
 		contentPane.add(BuscarAdministradorBtn);
 		
 		JLabel lblAdministrador_1 = new JLabel("Laborat\u00F3rio:");
@@ -122,17 +124,48 @@ public class TelaAdministrador extends JFrame {
 		lblAdministrador_1.setBounds(715, 116, 95, 14);
 		contentPane.add(lblAdministrador_1);
 		
-		JButton btnRefresh = new JButton("Refresh");
-		btnRefresh.setBounds(573, 61, 89, 23);
-		contentPane.add(btnRefresh);
-		
 		JLabel idCoordenadorLabel = new JLabel("Id:");
 		idCoordenadorLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		idCoordenadorLabel.setBounds(51, 493, 46, 14);
+		idCoordenadorLabel.setBounds(36, 530, 46, 14);
 		idCoordenadorLabel.setVisible(false);
 		contentPane.add(idCoordenadorLabel);
 		
+		JLabel IdLaboratorioLabel = new JLabel("Id:");
+		IdLaboratorioLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		IdLaboratorioLabel.setBounds(715, 495, 46, 14);
+		IdLaboratorioLabel.setVisible(false);
+		contentPane.add(IdLaboratorioLabel);
 		
+		JButton btnRefresh = new JButton("Refresh");
+		btnRefresh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controleCoordenador.readJtableCoordenador(JTableCoordenadores);
+				controleLaboratório.readJtableLaboratório(LaboratórioTable);
+				UsárioCoordenadorField.setText("");
+				SenhaCoordenadorField.setText("");
+				if(idCoordenadorLabel.isVisible()) {
+					idCoordenadorLabel.setVisible(false);
+				}
+				IdCoordenadorField.setText("");
+				if(IdCoordenadorField.isVisible()) {
+					IdCoordenadorField.setVisible(false);
+				}
+				NomeLaboratórioField.setText("");
+				NumeroLaboratórioField.setText("");
+				if(IdLaboratorioLabel.isVisible()) {
+					IdLaboratorioLabel.setVisible(false);
+				}
+				if(IdLaboratorioField.isVisible()) {
+					IdLaboratorioField.setVisible(false);
+				}
+				NomeCoordenadorTextField.setText("");
+				NumeroBuscarLaboratorioTextField.setText("");
+			}
+			
+		});
+		btnRefresh.setBounds(573, 61, 89, 23);
+		contentPane.add(btnRefresh);
+			
 		JTableCoordenadores = new JTable();
 		JTableCoordenadores.setModel(new DefaultTableModel(
 			new Object[][] {
@@ -169,36 +202,30 @@ public class TelaAdministrador extends JFrame {
 		
 		JLabel LabelUsuárioCoordenador = new JLabel("Usu\u00E1rio: ");
 		LabelUsuárioCoordenador.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		LabelUsuárioCoordenador.setBounds(51, 523, 61, 14);
+		LabelUsuárioCoordenador.setBounds(36, 555, 61, 14);
 		contentPane.add(LabelUsuárioCoordenador);
 		
 		UsárioCoordenadorField = new JTextField();
-		UsárioCoordenadorField.setBounds(110, 522, 164, 20);
+		UsárioCoordenadorField.setBounds(110, 554, 164, 20);
 		contentPane.add(UsárioCoordenadorField);
 		UsárioCoordenadorField.setColumns(10);
 		
 		JLabel lblSenha = new JLabel("Senha:");
 		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblSenha.setBounds(54, 554, 46, 14);
+		lblSenha.setBounds(36, 586, 46, 14);
 		contentPane.add(lblSenha);
-		
-		JLabel IdLaboratorioLabel = new JLabel("Id:");
-		IdLaboratorioLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		IdLaboratorioLabel.setBounds(715, 495, 46, 14);
-		IdLaboratorioLabel.setVisible(false);
-		contentPane.add(IdLaboratorioLabel);
 		
 		SenhaCoordenadorField = new JTextField();
 		SenhaCoordenadorField.setColumns(10);
-		SenhaCoordenadorField.setBounds(110, 553, 164, 20);
+		SenhaCoordenadorField.setBounds(110, 585, 164, 20);
 		contentPane.add(SenhaCoordenadorField);
 		
 		JButton SalvarCoordenadorBtn = new JButton("Salvar");
-		SalvarCoordenadorBtn.setBounds(49, 606, 89, 23);
+		SalvarCoordenadorBtn.setBounds(51, 635, 89, 23);
 		contentPane.add(SalvarCoordenadorBtn);
 		
 		JButton DeletarBtn = new JButton("Deletar");
-		DeletarBtn.setBounds(185, 606, 89, 23);
+		DeletarBtn.setBounds(185, 635, 89, 23);
 		contentPane.add(DeletarBtn);
 		
 		LaboratórioTable = new JTable();
@@ -264,7 +291,7 @@ public class TelaAdministrador extends JFrame {
 		
 		IdCoordenadorField = new JTextField();
 		IdCoordenadorField.setEditable(false);
-		IdCoordenadorField.setBounds(111, 492, 163, 20);
+		IdCoordenadorField.setBounds(110, 523, 163, 20);
 		IdCoordenadorField.setVisible(false);
 		contentPane.add(IdCoordenadorField);
 		IdCoordenadorField.setColumns(10);

@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import Controller.Exceções;
 import connection.ConnectionFactory;
 import model.Coordenador;
 import java.sql.PreparedStatement;
@@ -31,7 +32,8 @@ public class CoordenadorDAO {
 			stmt.executeUpdate();
 			JOptionPane.showMessageDialog(null,"Salvo com sucesso"); // Mensagem de Sucesso
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null,"Erro ao salvar: "+e); //Mensagem de Erro
+			Exceções lidar = new Exceções();
+			lidar.VerificarExceçãoCoordenador(e);
 		}finally {
 			ConnectionFactory.closeConnection(con, stmt);
 		}
@@ -91,7 +93,48 @@ public class CoordenadorDAO {
 		}
 		return Listacoordenadores;
 	}
+
+
+	public void Atualizar(Coordenador coordenador) {
+		//Cria a conecção e o statement
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		try {
+			//preapara o statement
+			stmt = con.prepareStatement("UPDATE coordenador SET UsuárioCoordenador = ?, SenhaCoordenador = ? WHERE idCoordenador = ?;");
+			//Executa o statement
+			stmt.setString(1, coordenador.getUsuario());
+			stmt.setString(2, coordenador.getSenha());
+			stmt.setInt(3, coordenador.getIdCoordenador());
+			stmt.executeUpdate();
+			JOptionPane.showMessageDialog(null,"Atualziado com sucesso"); // Mensagem de Sucesso
+		} catch (SQLException e) {
+			new Exceções().VerificarExceçãoCoordenador(e);
+		}finally {
+			ConnectionFactory.closeConnection(con, stmt);
+		}
+		
+	}
 	
+	public void Deletar(Coordenador coordenador) {
+		//Cria a conecção e o statement
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+	
+		try {
+			//preapara o statement
+			stmt = con.prepareStatement("DELETE FROM coordenador WHERE idCoordenador = ?");
+			//Executa o statement
+			stmt.setInt(1, coordenador.getIdCoordenador());
+			stmt.executeUpdate();
+			JOptionPane.showMessageDialog(null,"Deletado com sucesso"); // Mensagem de Sucesso
+		} catch (SQLException e) {
+			new Exceções().VerificarExceçãoCoordenador(e);
+		}finally {
+			ConnectionFactory.closeConnection(con, stmt);
+		}
+	}
+
 	
 	
 }

@@ -16,6 +16,8 @@ import dao.CoordenadorDAO;
 import model.Coordenador;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Panel;
 import javax.swing.UIManager;
 import java.awt.Font;
@@ -223,23 +225,44 @@ public class TelaAdministrador extends JFrame {
 		JButton SalvarCoordenadorBtn = new JButton("Salvar");
 		SalvarCoordenadorBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controleCoordenador.inserirCoordenador(UsárioCoordenadorField.getText(), SenhaCoordenadorField.getText());
+				
+				if(idCoordenadorLabel.isVisible()) {
+					int idCoordenador = Integer.parseInt(IdCoordenadorField.getText());
+					controleCoordenador.atualizarCoordenador(idCoordenador, UsárioCoordenadorField.getText(), SenhaCoordenadorField.getText());
+				}else {
+					controleCoordenador.inserirCoordenador(UsárioCoordenadorField.getText(), SenhaCoordenadorField.getText());
+				}
 				controleCoordenador.readJtableCoordenador(JTableCoordenadores);
+				
 			}
 		});
 		SalvarCoordenadorBtn.setBounds(51, 635, 89, 23);
 		contentPane.add(SalvarCoordenadorBtn);
 		
-		JButton DeletarBtn = new JButton("Deletar");
-		DeletarBtn.setBounds(185, 635, 89, 23);
-		contentPane.add(DeletarBtn);
+		JButton DeletarCoordenadorBtn = new JButton("Deletar");
+		DeletarCoordenadorBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(idCoordenadorLabel.isVisible()) {
+				int idCoordenador = Integer.parseInt(IdCoordenadorField.getText());
+				controleCoordenador.deletarCoordenador(idCoordenador);
+				controleCoordenador.readJtableCoordenador(JTableCoordenadores);
+				idCoordenadorLabel.setVisible(false);
+				IdCoordenadorField.setVisible(false);
+				IdCoordenadorField.setText("");
+				}else {
+					JOptionPane.showMessageDialog(null,"Nenhum coordenador selecionado");
+				}
+				}
+		});
+		DeletarCoordenadorBtn.setBounds(185, 635, 89, 23);
+		contentPane.add(DeletarCoordenadorBtn);
 		
 		LaboratórioTable = new JTable();
 		LaboratórioTable.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
 			new String[] {
-				"Id", "Usu\u00E1rio", "Nome"
+				"Id", "Numero", "Nome"
 			}
 		));
 		LaboratórioTable.setBounds(715, 141, 597, 321);
@@ -291,8 +314,14 @@ public class TelaAdministrador extends JFrame {
 		JButton SalvarLaboratório = new JButton("Salvar");
 		SalvarLaboratório.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				 int i = Integer.parseInt(NumeroLaboratórioField.getText());
-				 controleLaboratório.inserirLaboratório(i, NomeLaboratórioField.getText());
+				int i = Integer.parseInt(NumeroLaboratórioField.getText());
+				if(IdLaboratorioLabel.isVisible()) {
+					int Idlaboratorio = Integer.parseInt(IdLaboratorioField.getText());
+					controleLaboratório.AtualizarLaboratório(Idlaboratorio, i, NomeLaboratórioField.getText());
+				}else {
+					
+					controleLaboratório.inserirLaboratório(i, NomeLaboratórioField.getText());
+				 }
 				 controleLaboratório.readJtableLaboratório(LaboratórioTable);
 			}
 		});
@@ -300,6 +329,22 @@ public class TelaAdministrador extends JFrame {
 		contentPane.add(SalvarLaboratório);
 		
 		JButton DeletarLaboratório = new JButton("Deletar");
+		DeletarLaboratório.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(IdLaboratorioLabel.isVisible()) {
+				int idlaboratório = Integer.parseInt(IdLaboratorioField.getText());
+				controleLaboratório.DeletarLaboratório(idlaboratório);
+				controleLaboratório.readJtableLaboratório(LaboratórioTable);
+				NomeLaboratórioField.setText("");
+				NumeroLaboratórioField.setText("");
+				IdLaboratorioLabel.setVisible(false);
+				IdLaboratorioField.setVisible(false);
+				IdLaboratorioField.setText("");
+			}else {
+				JOptionPane.showMessageDialog(null, "Nenhum laboratório selecionado");
+			}
+				}
+		});
 		DeletarLaboratório.setBounds(861, 635, 89, 23);
 		contentPane.add(DeletarLaboratório);
 		
@@ -317,4 +362,5 @@ public class TelaAdministrador extends JFrame {
 		IdLaboratorioField.setVisible(false);
 		contentPane.add(IdLaboratorioField);
 	}
+	
 }

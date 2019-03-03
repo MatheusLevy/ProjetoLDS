@@ -33,6 +33,19 @@ public class ControleLaboratório {
 		ldao.create(laboratorio);
 	}
 	
+	public void AtualizarLaboratório(int IdLaboratório, int Número, String Nome) {
+		LaboratórioDAO ldao = new LaboratórioDAO();
+		Laboratorio laboratorio = new Laboratorio(IdLaboratório, Nome, Número);
+		ldao.Atualiza(laboratorio);
+	}
+	
+	public void DeletarLaboratório(int IdLaboratório) {
+		LaboratórioDAO ldao = new LaboratórioDAO();
+		Laboratorio laboratorio = new Laboratorio();
+		laboratorio.setIdLaboratorio(IdLaboratório);
+		ldao.Deletar(laboratorio);
+	}
+	
 	
 	
 	

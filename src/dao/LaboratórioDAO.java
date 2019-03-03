@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import Controller.Exceções;
 import connection.ConnectionFactory;
 import model.Coordenador;
 import model.Laboratorio;
@@ -61,6 +62,44 @@ public class LaboratórioDAO {
 		}		
 	}
 	
+	public void Atualiza(Laboratorio laboratorio) {
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		
+		try {
+			//preapara o statement
+			stmt = con.prepareStatement("UPDATE laboratório SET NúmeroLaboratório = ?, NomeLaboratório  = ? WHERE idLaboratório = ?;");
+			//Executa o statement
+			stmt.setInt(1, laboratorio.getNumero());
+			stmt.setString(2, laboratorio.getNome());
+			stmt.setInt(3, laboratorio.getIdLaboratorio());
+			stmt.executeUpdate();
+			JOptionPane.showMessageDialog(null,"Atualizado com sucesso"); // Mensagem de Sucesso
+		} catch (SQLException e) {
+			new Exceções().VerificarExceçãoLaboratorio(e);
+		}finally {
+			ConnectionFactory.closeConnection(con, stmt);
+		}		
+		
+	}
+	
+	public void Deletar(Laboratorio laboratorio) {
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		
+		try {
+			//preapara o statement
+			stmt = con.prepareStatement("DELETE FROM laboratório WHERE idLaboratório = ?");
+			//Executa o statement
+			stmt.setInt(1, laboratorio.getIdLaboratorio());
+			stmt.executeUpdate();
+			JOptionPane.showMessageDialog(null,"Deletado com sucesso"); // Mensagem de Sucesso
+		} catch (SQLException e) {
+			new Exceções().VerificarExceçãoLaboratorio(e);
+		}finally {
+			ConnectionFactory.closeConnection(con, stmt);
+		}		
+	}
 	
 	
 }

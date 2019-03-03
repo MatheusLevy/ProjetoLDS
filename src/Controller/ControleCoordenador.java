@@ -51,4 +51,18 @@ public class ControleCoordenador {
 		coordenador.setSenha(Senha);
 		cdao.create(coordenador);
 	}
+	
+	public void atualizarCoordenador(int IdCoordenador, String Usuário, String Senha) {
+		CoordenadorDAO cdao = new CoordenadorDAO();
+		Coordenador coordenador = new Coordenador(IdCoordenador,Usuário,Senha);
+		cdao.Atualizar(coordenador);
+		
+	}
+	
+	public void deletarCoordenador(int idCoordenador) {
+		CoordenadorDAO cdao = new CoordenadorDAO();
+		Coordenador coordenador = new Coordenador();
+		coordenador.setIdCoordenador(idCoordenador);
+		cdao.Deletar(coordenador);
+	}
 }

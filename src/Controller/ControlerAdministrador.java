@@ -3,9 +3,7 @@ package Controller;
 import javax.swing.JOptionPane;
 
 import View.TelaAdministrador;
-import View.TelaCoordenador;
 import dao.AdministradorDAO;
-import dao.CoordenadorDAO;
 
 public class ControlerAdministrador {
 	

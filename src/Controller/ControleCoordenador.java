@@ -19,7 +19,9 @@ public class ControleCoordenador {
 		CoordenadorDAO dao = new CoordenadorDAO();
 		
 		if(dao.checklogin(text, senha)){
-			new TelaCoordenador().setVisible(true);
+			 TelaCoordenador telaCoordenador = new TelaCoordenador();
+			 telaCoordenador.setVisible(true);
+			 telaCoordenador.setExtendedState(telaCoordenador.MAXIMIZED_BOTH);
 			return true;
 		}else {
 			JOptionPane.showMessageDialog(null,"Login Incorreto");

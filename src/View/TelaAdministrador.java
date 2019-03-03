@@ -132,7 +132,7 @@ public class TelaAdministrador extends JFrame {
 		
 		JLabel IdLaboratorioLabel = new JLabel("Id:");
 		IdLaboratorioLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		IdLaboratorioLabel.setBounds(715, 495, 46, 14);
+		IdLaboratorioLabel.setBounds(715, 525, 46, 14);
 		IdLaboratorioLabel.setVisible(false);
 		contentPane.add(IdLaboratorioLabel);
 		
@@ -197,7 +197,7 @@ public class TelaAdministrador extends JFrame {
 		scroller.setVisible(true);
 		scroller.setBounds(51, 141, 518, 321);
 		this.getContentPane().add(scroller);
-		//Limpo todos os campos e preenche a tabela coordenadores com os dados do banco
+		//preenche a tabela coordenadores com os dados do banco
 		controleCoordenador.readJtableCoordenador(JTableCoordenadores);
 		
 		JLabel LabelUsuárioCoordenador = new JLabel("Usu\u00E1rio: ");
@@ -206,7 +206,7 @@ public class TelaAdministrador extends JFrame {
 		contentPane.add(LabelUsuárioCoordenador);
 		
 		UsárioCoordenadorField = new JTextField();
-		UsárioCoordenadorField.setBounds(110, 554, 164, 20);
+		UsárioCoordenadorField.setBounds(110, 554, 164, 23);
 		contentPane.add(UsárioCoordenadorField);
 		UsárioCoordenadorField.setColumns(10);
 		
@@ -217,7 +217,7 @@ public class TelaAdministrador extends JFrame {
 		
 		SenhaCoordenadorField = new JTextField();
 		SenhaCoordenadorField.setColumns(10);
-		SenhaCoordenadorField.setBounds(110, 585, 164, 20);
+		SenhaCoordenadorField.setBounds(110, 585, 164, 23);
 		contentPane.add(SenhaCoordenadorField);
 		
 		JButton SalvarCoordenadorBtn = new JButton("Salvar");
@@ -263,35 +263,35 @@ public class TelaAdministrador extends JFrame {
 		
 		JLabel NumeroLaboratorio = new JLabel("N\u00FAmero: ");
 		NumeroLaboratorio.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		NumeroLaboratorio.setBounds(715, 523, 61, 14);
+		NumeroLaboratorio.setBounds(715, 555, 61, 14);
 		contentPane.add(NumeroLaboratorio);
 		
 		NumeroLaboratórioField = new JTextField();
 		NumeroLaboratórioField.setColumns(10);
-		NumeroLaboratórioField.setBounds(786, 522, 164, 20);
+		NumeroLaboratórioField.setBounds(786, 553, 164, 23);
 		contentPane.add(NumeroLaboratórioField);
 		
 		JLabel NomeLaboratório = new JLabel("Nome:");
 		NomeLaboratório.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		NomeLaboratório.setBounds(715, 554, 46, 14);
+		NomeLaboratório.setBounds(715, 586, 46, 14);
 		contentPane.add(NomeLaboratório);
 		
 		NomeLaboratórioField = new JTextField();
 		NomeLaboratórioField.setColumns(10);
-		NomeLaboratórioField.setBounds(786, 553, 164, 20);
+		NomeLaboratórioField.setBounds(786, 584, 164, 23);
 		contentPane.add(NomeLaboratórioField);
 		
 		JButton SalvarLaboratório = new JButton("Salvar");
-		SalvarLaboratório.setBounds(721, 606, 89, 23);
+		SalvarLaboratório.setBounds(715, 635, 89, 23);
 		contentPane.add(SalvarLaboratório);
 		
 		JButton DeletarLaboratório = new JButton("Deletar");
-		DeletarLaboratório.setBounds(861, 606, 89, 23);
+		DeletarLaboratório.setBounds(861, 635, 89, 23);
 		contentPane.add(DeletarLaboratório);
 		
 		IdCoordenadorField = new JTextField();
 		IdCoordenadorField.setEditable(false);
-		IdCoordenadorField.setBounds(110, 523, 163, 20);
+		IdCoordenadorField.setBounds(110, 523, 163, 23);
 		IdCoordenadorField.setVisible(false);
 		contentPane.add(IdCoordenadorField);
 		IdCoordenadorField.setColumns(10);
@@ -299,7 +299,7 @@ public class TelaAdministrador extends JFrame {
 		IdLaboratorioField = new JTextField();
 		IdLaboratorioField.setEditable(false);
 		IdLaboratorioField.setColumns(10);
-		IdLaboratorioField.setBounds(786, 492, 164, 20);
+		IdLaboratorioField.setBounds(786, 523, 164, 23);
 		IdLaboratorioField.setVisible(false);
 		contentPane.add(IdLaboratorioField);
 	}

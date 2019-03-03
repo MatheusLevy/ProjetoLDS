@@ -221,6 +221,12 @@ public class TelaAdministrador extends JFrame {
 		contentPane.add(SenhaCoordenadorField);
 		
 		JButton SalvarCoordenadorBtn = new JButton("Salvar");
+		SalvarCoordenadorBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controleCoordenador.inserirCoordenador(UsárioCoordenadorField.getText(), SenhaCoordenadorField.getText());
+				controleCoordenador.readJtableCoordenador(JTableCoordenadores);
+			}
+		});
 		SalvarCoordenadorBtn.setBounds(51, 635, 89, 23);
 		contentPane.add(SalvarCoordenadorBtn);
 		
@@ -269,6 +275,7 @@ public class TelaAdministrador extends JFrame {
 		NumeroLaboratórioField = new JTextField();
 		NumeroLaboratórioField.setColumns(10);
 		NumeroLaboratórioField.setBounds(786, 553, 164, 23);
+		NumeroLaboratórioField.setDocument(new ControleEntrada());
 		contentPane.add(NumeroLaboratórioField);
 		
 		JLabel NomeLaboratório = new JLabel("Nome:");
@@ -282,6 +289,13 @@ public class TelaAdministrador extends JFrame {
 		contentPane.add(NomeLaboratórioField);
 		
 		JButton SalvarLaboratório = new JButton("Salvar");
+		SalvarLaboratório.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				 int i = Integer.parseInt(NumeroLaboratórioField.getText());
+				 controleLaboratório.inserirLaboratório(i, NomeLaboratórioField.getText());
+				 controleLaboratório.readJtableLaboratório(LaboratórioTable);
+			}
+		});
 		SalvarLaboratório.setBounds(715, 635, 89, 23);
 		contentPane.add(SalvarLaboratório);
 		

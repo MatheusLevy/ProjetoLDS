@@ -25,5 +25,17 @@ public class ControleLaboratório {
 		}
 	}
 	
+	public void inserirLaboratório(int Número, String Nome) {
+		LaboratórioDAO ldao = new LaboratórioDAO();
+		Laboratorio laboratorio = new Laboratorio();
+		laboratorio.setNumero(Número);
+		laboratorio.setNome(Nome);
+		ldao.create(laboratorio);
+	}
+	
+	
+	
+	
+	
 	
 }

@@ -43,4 +43,12 @@ public class ControleCoordenador {
 			});
 		}
 	}
+	
+	public void inserirCoordenador(String Usuário, String Senha) {
+		CoordenadorDAO cdao = new CoordenadorDAO();
+		Coordenador coordenador = new Coordenador();
+		coordenador.setUsuario(Usuário);
+		coordenador.setSenha(Senha);
+		cdao.create(coordenador);
+	}
 }

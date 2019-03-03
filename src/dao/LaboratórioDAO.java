@@ -10,6 +10,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import connection.ConnectionFactory;
+import model.Coordenador;
 import model.Laboratorio;
 
 public class LaboratórioDAO {
@@ -40,4 +41,26 @@ public class LaboratórioDAO {
 		}
 		return ListaLaboratorios;
 	}
+	
+	public void create(Laboratorio l) {
+		//Cria a conecção e o statement
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		try {
+			//preapara o statement
+			stmt = con.prepareStatement("INSERT INTO laboratório(NúmeroLaboratório, NomeLaboratório) values(?,?)");
+			stmt.setInt(1, l.getNumero());
+			stmt.setString(2, l.getNome());
+			//Executa o statement
+			stmt.executeUpdate();
+			JOptionPane.showMessageDialog(null,"Salvo com sucesso"); // Mensagem de Sucesso
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null,"Erro ao salvar: "+e); //Mensagem de Erro
+		}finally {
+			ConnectionFactory.closeConnection(con, stmt);
+		}		
+	}
+	
+	
+	
 }

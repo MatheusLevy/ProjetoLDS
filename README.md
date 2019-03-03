@@ -13,4 +13,8 @@ PS: nenhuma dificuldade encontrada
 PS: nenhuma dificuldade encontrada
 
 01/03 - Criado Login do Administrador
-PS: Nenhuma dificuldade encontradadd
+PS: Nenhuma dificuldade encontrada
+
+02/03 - Criado Tela do Coordenador
+PS: Nenhuma dificuldade encontrada
+

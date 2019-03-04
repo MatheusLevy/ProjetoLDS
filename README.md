@@ -18,3 +18,14 @@ PS: Nenhuma dificuldade encontrada
 02/03 - Criado Tela do Coordenador
 PS: Nenhuma dificuldade encontrada
 
+03/02 - Deletar Coordenador
+      - Deletar Laboratório
+      - Editar Coordenador
+      - Editar Laboratório
+      - Tela de Horário de um laboratório
+      - Tratamento de excceções sql
+      - Correção nos campos que deveriam aceitar somente numeros(exemplo: NumeroLaboratórioField)
+      - Padrão singleton aplicado para tela de Horário de um laboratório
+      - Feito alterações nos model como criação de sobrecarga de construtor
+PS: Dificuldade em preencher a tabela de horário com as materias do dia da semana corretamente
+

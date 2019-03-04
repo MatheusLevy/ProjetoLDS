@@ -7,6 +7,7 @@ import javax.swing.table.DefaultTableModel;
 import View.Horario;
 import dao.CoordenadorDAO;
 import dao.HorárioDAO;
+import dao.LaboratórioDAO;
 import model.Coordenador;
 import model.Horário;
 import model.Laboratorio;
@@ -14,7 +15,8 @@ public class ControleHorario {
 
 	public void AbrirHorarios(String IdLaboratorio, String Nome, String Numero) {
 		Laboratorio lab = new Laboratorio(Integer.parseInt(IdLaboratorio),Nome, Integer.parseInt(Numero));
-		Horario frame = Horario.getInstance(lab);
+		Horario frame = new Horario(lab);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
 	
@@ -25,9 +27,45 @@ public class ControleHorario {
 		
 		for(Horário h : hdao.readHorario(IdLaboratorio)) {
 			modelo.addRow(new Object[] {
+					h.getIdHorario(),
 					h.getHorario(),
-					h.getDisciplina()
+					h.getSegunda(),
+					h.getTerça(),
+					h.getQuarta(),
+					h.getQuinta(),
+					h.getSexta()
 			});
 		}
+	}
+	
+	public void atualizar(int idHorário, String Horário, String Segunda, String Terça, String Quarta, String Quinta, String Sexta
+			, int numeroLab) {
+		HorárioDAO hdao = new HorárioDAO();
+		Horário horario = new Horário();
+		Laboratorio lab = new Laboratorio();
+		lab.setNumero(numeroLab);
+		horario.setIdHorario(idHorário);
+		horario.setHorario(Horário);
+		horario.setSegunda(Segunda);
+		horario.setTerça(Terça);
+		horario.setQuarta(Quarta);
+		horario.setQuinta(Quinta);
+		horario.setSexta(Sexta);
+		hdao.Atualizar(horario,lab);
+	}
+	
+	public void criarhorario(String horarios, String segunda, String terça, String quarta, String quinta, String sexta, int idLaboratório) {
+		
+			HorárioDAO hdao = new HorárioDAO();
+			Horário horario = new Horário();
+			Laboratorio lab = new Laboratorio();
+			horario.setHorario(horarios);
+			horario.setSegunda(segunda);
+			horario.setTerça(terça);
+			horario.setQuarta(quarta);
+			horario.setQuinta(quinta);
+			horario.setSexta(sexta);
+			lab.setIdLaboratorio(idLaboratório);
+			hdao.Inserir(horario, lab);
 	}
 }

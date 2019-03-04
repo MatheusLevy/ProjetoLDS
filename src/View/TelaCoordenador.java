@@ -13,8 +13,12 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
+import Controller.ControleHorario;
 import Controller.ControleLaboratório;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class TelaCoordenador extends JFrame {
 
@@ -45,6 +49,7 @@ public class TelaCoordenador extends JFrame {
 	 */
 	public TelaCoordenador() {
 		ControleLaboratório controleLaboratorios = new ControleLaboratório();
+		ControleHorario controleHorario = new ControleHorario();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1336, 768);
@@ -80,6 +85,17 @@ public class TelaCoordenador extends JFrame {
 		JTableLaboratorios.setVisible(true);
 		
 		JScrollPane scroller = new JScrollPane(JTableLaboratorios);
+		scroller.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				int index = JTableLaboratorios.getSelectedRow();
+				TableModel model = JTableLaboratorios.getModel();
+				String idLaboratorio = model.getValueAt(index, 0).toString();
+				String Numero = model.getValueAt(index, 1).toString();
+				String Nome = model.getValueAt(index, 2).toString();
+				controleHorario.AbrirHorarios(idLaboratorio, Nome, Numero);
+			}
+		});
 		scroller.setVisible(true);
 		scroller.setBounds(252, 129, 813, 561);
 		this.getContentPane().add(scroller);

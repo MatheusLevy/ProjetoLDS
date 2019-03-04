@@ -3,12 +3,12 @@ package model;
 public class Aula {
 	private int idAula;
 	private Turma turma;
-	private Horario horario;
+	private Horário horario;
 	private Laboratorio laboratorio;
 	private Professor professor;
 	private Disciplina disciplina;
 	
-	public Aula(int idAula, Turma turma, Horario horario,
+	public Aula(int idAula, Turma turma, Horário horario,
 			Laboratorio laboratorio, Professor professor, Disciplina disciplina) {
 		this.idAula = idAula;
 		this.turma = turma;
@@ -29,10 +29,10 @@ public class Aula {
 	public void setTurma(Turma turma) {
 		this.turma = turma;
 	}
-	public Horario getHorario() {
+	public Horário getHorario() {
 		return horario;
 	}
-	public void setHorario(Horario horario) {
+	public void setHorario(Horário horario) {
 		this.horario = horario;
 	}
 	public Laboratorio getLaboratorio() {

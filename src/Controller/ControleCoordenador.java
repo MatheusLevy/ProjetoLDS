@@ -5,6 +5,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import View.TelaCoordenador;
+import View.TelaLoginCoordenador;
 import dao.CoordenadorDAO;
 import model.Coordenador;
 
@@ -64,5 +65,11 @@ public class ControleCoordenador {
 		Coordenador coordenador = new Coordenador();
 		coordenador.setIdCoordenador(idCoordenador);
 		cdao.Deletar(coordenador);
+	}
+	
+	public void Logout() {
+		TelaLoginCoordenador telaLogin = new TelaLoginCoordenador();
+		telaLogin.setLocationRelativeTo(null);
+		telaLogin.setVisible(true);
 	}
 }

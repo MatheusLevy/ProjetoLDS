@@ -15,10 +15,13 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
+import Controller.ControleCoordenador;
 import Controller.ControleHorario;
 import Controller.ControleLaboratório;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaCoordenador extends JFrame {
 
@@ -106,5 +109,15 @@ public class TelaCoordenador extends JFrame {
 		LaboratoriosLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		LaboratoriosLabel.setBounds(252, 94, 105, 14);
 		contentPane.add(LaboratoriosLabel);
+		
+		JButton LogoutBtn = new JButton("Logout");
+		LogoutBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new ControleCoordenador().Logout();
+				dispose();
+			}
+		});
+		LogoutBtn.setBounds(1202, 677, 89, 23);
+		contentPane.add(LogoutBtn);
 	}
 }

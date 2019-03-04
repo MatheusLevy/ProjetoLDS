@@ -3,6 +3,7 @@ package Controller;
 import javax.swing.JOptionPane;
 
 import View.TelaAdministrador;
+import View.TelaLoginCoordenador;
 import dao.AdministradorDAO;
 
 public class ControlerAdministrador {
@@ -20,5 +21,11 @@ public class ControlerAdministrador {
 			return false;
 		}
 		
+	}
+	
+	public void Logout() {
+		TelaLoginCoordenador TelaLogin = new TelaLoginCoordenador();
+		TelaLogin.setLocationRelativeTo(null);
+		TelaLogin.setVisible(true);
 	}
 }

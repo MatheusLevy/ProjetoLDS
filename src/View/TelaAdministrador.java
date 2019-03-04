@@ -12,6 +12,7 @@ import javax.swing.table.TableModel;
 
 import Controller.ControleCoordenador;
 import Controller.ControleLaboratório;
+import Controller.ControlerAdministrador;
 import dao.CoordenadorDAO;
 import model.Coordenador;
 
@@ -361,6 +362,16 @@ public class TelaAdministrador extends JFrame {
 		IdLaboratorioField.setBounds(786, 523, 164, 23);
 		IdLaboratorioField.setVisible(false);
 		contentPane.add(IdLaboratorioField);
+		
+		JButton LogoutBtn = new JButton("Logout");
+		LogoutBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new ControlerAdministrador().Logout();
+				dispose();
+			}
+		});
+		LogoutBtn.setBounds(1233, 695, 89, 23);
+		contentPane.add(LogoutBtn);
 	}
 	
 }

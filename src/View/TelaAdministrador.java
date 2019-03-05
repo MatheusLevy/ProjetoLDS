@@ -106,7 +106,13 @@ public class TelaAdministrador extends JFrame {
 		NomeCoordenadorTextField.setColumns(10);
 		
 		JButton BuscarCoordenadorBtn = new JButton("Buscar");
-		BuscarCoordenadorBtn.setBounds(321, 61, 89, 23);
+		BuscarCoordenadorBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String NomeCoordenador = NomeCoordenadorTextField.getText();
+				controleCoordenador.BuscarCoordenador(NomeCoordenador, JTableCoordenadores);
+			}
+		});
+		BuscarCoordenadorBtn.setBounds(321, 61, 107, 23);
 		contentPane.add(BuscarCoordenadorBtn);
 		
 		JLabel lblBuscar = new JLabel("Buscar:");
@@ -387,6 +393,14 @@ public class TelaAdministrador extends JFrame {
 		});
 		btnVerTodos.setBounds(996, 95, 107, 23);
 		contentPane.add(btnVerTodos);
+		
+		JButton VertodosCoordenadorBtn = new JButton("Ver Todos");
+		VertodosCoordenadorBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controleCoordenador.readJtableCoordenador(JTableCoordenadores);
+			}
+		});
+		VertodosCoordenadorBtn.setBounds(321, 95, 107, 23);
+		contentPane.add(VertodosCoordenadorBtn);
 	}
-	
 }

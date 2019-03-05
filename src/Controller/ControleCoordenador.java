@@ -7,7 +7,9 @@ import javax.swing.table.DefaultTableModel;
 import View.TelaCoordenador;
 import View.TelaLoginCoordenador;
 import dao.CoordenadorDAO;
+import dao.LaboratórioDAO;
 import model.Coordenador;
+import model.Laboratorio;
 
 public class ControleCoordenador {
 	
@@ -71,5 +73,21 @@ public class ControleCoordenador {
 		TelaLoginCoordenador telaLogin = new TelaLoginCoordenador();
 		telaLogin.setLocationRelativeTo(null);
 		telaLogin.setVisible(true);
+	}
+	
+	public void BuscarCoordenador(String Usuario, JTable JTableLaboratório) {
+		CoordenadorDAO cdao = new CoordenadorDAO();
+		Coordenador coordenador = new Coordenador();
+		coordenador.setUsuario(Usuario);
+		DefaultTableModel modelo = (DefaultTableModel) JTableLaboratório.getModel();
+		modelo.setNumRows(0);
+		
+		for(Coordenador c : cdao.BuscarCoordenador(coordenador)) {
+			modelo.addRow(new Object[] {
+					c.getIdCoordenador(),
+					c.getUsuario(),
+					c.getSenha()
+			});
+		}
 	}
 }

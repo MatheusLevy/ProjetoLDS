@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 import Controller.Exceções;
 import connection.ConnectionFactory;
 import model.Coordenador;
+import model.Laboratorio;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -135,6 +137,33 @@ public class CoordenadorDAO {
 		}
 	}
 
-	
+	public List<Coordenador> BuscarCoordenador(Coordenador coorde){
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		List<Coordenador> ListaCoordenadores = new ArrayList<>();
+		
+		try {
+			//preapara o statement
+			stmt = con.prepareStatement("SELECT * FROM coordenador WHERE  UsuárioCoordenador= ?");
+			//Executa o statement
+			stmt.setString(1, coorde.getUsuario());
+			rs = stmt.executeQuery();
+			
+			
+			while (rs.next()) {
+				Coordenador coordenador = new Coordenador();
+				coordenador.setIdCoordenador(rs.getInt("idCoordenador"));
+				coordenador.setUsuario(rs.getString("UsuárioCoordenador"));
+				coordenador.setSenha(rs.getString("SenhaCoordenador"));
+				ListaCoordenadores.add(coordenador);
+			}
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null,"Erro:" + e);
+		}finally {
+			ConnectionFactory.closeConnection(con, stmt);
+		}
+		return ListaCoordenadores;
+	}
 	
 }

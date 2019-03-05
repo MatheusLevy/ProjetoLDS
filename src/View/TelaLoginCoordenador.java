@@ -1,21 +1,13 @@
 package View;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import Controller.ControleCoordenador;
 import Controller.ControlerAdministrador;
-import dao.CoordenadorDAO;
-
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.Font;
-import javax.swing.JTextField;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -25,6 +17,7 @@ import javax.swing.JCheckBox;
 
 public class TelaLoginCoordenador extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPasswordField SenhaField;
 

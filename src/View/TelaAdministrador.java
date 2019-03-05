@@ -1,6 +1,5 @@
 package View;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -14,8 +13,6 @@ import Controller.ControleCoordenador;
 import Controller.ControleHorario;
 import Controller.ControleLaboratório;
 import Controller.ControlerAdministrador;
-import dao.CoordenadorDAO;
-import model.Coordenador;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -25,11 +22,7 @@ import javax.swing.UIManager;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import java.awt.Dialog.ModalExclusionType;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.ComponentOrientation;
-import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -38,6 +31,7 @@ import java.awt.event.ActionEvent;
 
 public class TelaAdministrador extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField NomeCoordenadorTextField;
 	private JTextField NumeroBuscarLaboratorioTextField;
@@ -83,7 +77,6 @@ public class TelaAdministrador extends JFrame {
 		contentPane.setLayout(null);
 		
 		Panel panel = new Panel();
-		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
 		panel.setBackground(UIManager.getColor("MenuItem.disabledForeground"));
 		panel.setBounds(0, 0, 1350, 35);
 		contentPane.add(panel);

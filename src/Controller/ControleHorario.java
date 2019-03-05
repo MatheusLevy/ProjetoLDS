@@ -1,14 +1,10 @@
 package Controller;
 
-import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import View.Horario;
-import dao.CoordenadorDAO;
 import dao.HorárioDAO;
-import dao.LaboratórioDAO;
-import model.Coordenador;
 import model.Horário;
 import model.Laboratorio;
 public class ControleHorario {

@@ -9,7 +9,6 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import Controller.Exceções;
 import connection.ConnectionFactory;
 import model.Horário;
 import model.Laboratorio;

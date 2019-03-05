@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 import Controller.Exceções;
 import connection.ConnectionFactory;
 import model.Coordenador;
-import model.Laboratorio;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

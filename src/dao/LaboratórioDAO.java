@@ -11,7 +11,6 @@ import javax.swing.JOptionPane;
 
 import Controller.Exceções;
 import connection.ConnectionFactory;
-import model.Coordenador;
 import model.Laboratorio;
 
 public class LaboratórioDAO {

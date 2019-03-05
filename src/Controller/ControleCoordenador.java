@@ -7,9 +7,8 @@ import javax.swing.table.DefaultTableModel;
 import View.TelaCoordenador;
 import View.TelaLoginCoordenador;
 import dao.CoordenadorDAO;
-import dao.LaboratórioDAO;
 import model.Coordenador;
-import model.Laboratorio;
+
 
 public class ControleCoordenador {
 	

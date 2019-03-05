@@ -113,5 +113,23 @@ public class HorárioDAO {
 		
 	}
 	
+	public void Deletar(Horário horario) {
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		try {
+			//preapara o statement
+		    stmt = con.prepareStatement("DELETE FROM horário WHERE idHorário = ?");
+			stmt.setInt(1, horario.getIdHorario());
+		    //Executa o statement
+			stmt.executeUpdate();
+			
+			JOptionPane.showMessageDialog(null,"Deletado com sucesso"); // Mensagem de Sucesso
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null,"Erro ao deletar em: " + e);
+		}finally {
+			ConnectionFactory.closeConnection(con, stmt);
+		}		
+	}
+	
 }
 	

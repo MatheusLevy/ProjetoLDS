@@ -68,4 +68,11 @@ public class ControleHorario {
 			lab.setIdLaboratorio(idLaboratório);
 			hdao.Inserir(horario, lab);
 	}
+	
+	public void DeletarHorario(int IdHorario) {
+		HorárioDAO hdao = new HorárioDAO();
+		Horário horario = new Horário();
+		horario.setIdHorario(IdHorario);
+		hdao.Deletar(horario);
+	}
 }

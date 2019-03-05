@@ -11,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 import Controller.ControleCoordenador;
+import Controller.ControleHorario;
 import Controller.ControleLaboratório;
 import Controller.ControlerAdministrador;
 import dao.CoordenadorDAO;
@@ -402,5 +403,19 @@ public class TelaAdministrador extends JFrame {
 		});
 		VertodosCoordenadorBtn.setBounds(321, 95, 107, 23);
 		contentPane.add(VertodosCoordenadorBtn);
+		
+		JButton VerHorarioBtn = new JButton("Ver Hor\u00E1rios");
+		VerHorarioBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int index = LaboratórioTable.getSelectedRow();
+				TableModel model = LaboratórioTable.getModel();
+				String idLaboratorio = model.getValueAt(index, 0).toString();
+				String Numero = model.getValueAt(index, 1).toString();
+				String Nome = model.getValueAt(index, 2).toString();
+				new ControleHorario().AbrirHorarios(idLaboratorio, Nome, Numero);
+			}
+		});
+		VerHorarioBtn.setBounds(978, 635, 107, 23);
+		contentPane.add(VerHorarioBtn);
 	}
 }

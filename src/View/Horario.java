@@ -38,6 +38,7 @@ public class Horario extends JFrame {
 	private JTextField SextaField;
 	private JLabel IdLabel;
 	private JTextField idField;
+	private JButton DeletarBtn;
 
 	/**
 	 * Launch the application.
@@ -266,5 +267,16 @@ public class Horario extends JFrame {
 		});
 		btnLimpar.setBounds(264, 547, 89, 23);
 		contentPane.add(btnLimpar);
+		
+		DeletarBtn = new JButton("Deletar");
+		DeletarBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int IdHorario = Integer.parseInt( idField.getText());
+				controleHorario.DeletarHorario(IdHorario);
+				controleHorario.readJtableHorario(HorárioTable, lab.getIdLaboratorio());
+			}
+		});
+		DeletarBtn.setBounds(264, 507, 89, 23);
+		contentPane.add(DeletarBtn);
 	}
 }

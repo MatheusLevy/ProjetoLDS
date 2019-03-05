@@ -1,4 +1,4 @@
-# ProjetoLDS
+﻿# ProjetoLDS
 Sistema que irá controlar os horários de laboratórios do Departamento de Computação ( DCOMP )
 
 Diário de Desenvolvimento
@@ -29,3 +29,14 @@ PS: Nenhuma dificuldade encontrada
       - Feito alterações nos model como criação de sobrecarga de construtor
 PS: Dificuldade em preencher a tabela de horário com as materias do dia da semana corretamente
 
+04/02 - Correção de bugs anteriores
+      - Alterar Horário de um laboratório
+      - Exibir os horários de um laboratório
+      - Buscar Laboratório na Tela de Coordenador
+      - Buscar Laboratório na Tela de Administrador
+      - Buscar Coordenador na Tela de Administrador
+      - Inserir Horário em um laboratório
+      - Executado testes simples para achar bugs de lógica
+      - Resolvido problema de lógica para preencher a tabela de Horários de um Laboratório
+      - Ajustes na classe modelo de horário e no banco de dados
+PS: Nenhuma dificuldade encontrada

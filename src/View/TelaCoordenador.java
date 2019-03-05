@@ -67,7 +67,7 @@ public class TelaCoordenador extends JFrame {
 		contentPane.add(lblBuscar);
 		
 		NumeroLaboratorioField = new JTextField();
-		NumeroLaboratorioField.setBounds(312, 43, 162, 20);
+		NumeroLaboratorioField.setBounds(312, 43, 162, 23);
 		contentPane.add(NumeroLaboratorioField);
 		NumeroLaboratorioField.setColumns(10);
 		

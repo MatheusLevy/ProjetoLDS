@@ -101,7 +101,7 @@ public class TelaAdministrador extends JFrame {
 		contentPane.add(BuscarLabel);
 		
 		NomeCoordenadorTextField = new JTextField();
-		NomeCoordenadorTextField.setBounds(114, 62, 197, 20);
+		NomeCoordenadorTextField.setBounds(114, 62, 197, 23);
 		contentPane.add(NomeCoordenadorTextField);
 		NomeCoordenadorTextField.setColumns(10);
 		
@@ -120,7 +120,7 @@ public class TelaAdministrador extends JFrame {
 		contentPane.add(lblBuscar);
 		
 		NumeroBuscarLaboratorioTextField = new JTextField();
-		NumeroBuscarLaboratorioTextField.setBounds(771, 62, 197, 20);
+		NumeroBuscarLaboratorioTextField.setBounds(771, 62, 197, 23);
 		contentPane.add(NumeroBuscarLaboratorioTextField);
 		NumeroBuscarLaboratorioTextField.setColumns(10);
 		

@@ -96,6 +96,7 @@ public class LaboratórioDAO {
 			JOptionPane.showMessageDialog(null,"Deletado com sucesso"); // Mensagem de Sucesso
 		} catch (SQLException e) {
 			new Exceções().VerificarExceçãoLaboratorio(e);
+			System.out.println(e.getErrorCode());
 		}finally {
 			ConnectionFactory.closeConnection(con, stmt);
 		}		
@@ -123,7 +124,7 @@ public class LaboratórioDAO {
 				ListaLaboratorios.add(laboratorio);
 			}
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null,"Erro:" + e);
+			JOptionPane.showMessageDialog(null,"Erro: " +e);
 		}finally {
 			ConnectionFactory.closeConnection(con, stmt);
 		}

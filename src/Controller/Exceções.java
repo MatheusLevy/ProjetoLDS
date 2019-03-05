@@ -7,11 +7,21 @@ import javax.swing.JOptionPane;
 public class Exceções {
 
 	public void VerificarExceçãoLaboratorio(SQLException e) {
-		if(e.getErrorCode() == 1062) {
+		
+	switch (e.getErrorCode()) {
+		case 1062:
 			JOptionPane.showMessageDialog(null,"Erro ao atualizar: Já existe um laboratório com esse número"); //Mensagem de Erro
-		}else {
+			break;
+		case 1451:
+			JOptionPane.showMessageDialog(null,"Erro ao atualizar: Há um horário em uso para esse laborátorio"); //Mensagem de Erro
+			break;
+		default:
 			JOptionPane.showMessageDialog(null,"Erro ao atualizar:"+e); //Mensagem de Erro
 		}
+			
+		
+			
+		
 	}
 	
 	public void VerificarExceçãoCoordenador(SQLException e) {

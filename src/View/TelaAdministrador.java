@@ -119,7 +119,13 @@ public class TelaAdministrador extends JFrame {
 		NumeroBuscarLaboratorioTextField.setColumns(10);
 		
 		JButton BuscarAdministradorBtn = new JButton("Buscar");
-		BuscarAdministradorBtn.setBounds(996, 61, 89, 23);
+		BuscarAdministradorBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int NumeroLab = Integer.parseInt(NumeroBuscarLaboratorioTextField.getText());
+				controleLaboratório.BuscarLaboratório(NumeroLab, LaboratórioTable);
+			}
+		});
+		BuscarAdministradorBtn.setBounds(996, 61, 107, 23);
 		contentPane.add(BuscarAdministradorBtn);
 		
 		JLabel lblAdministrador_1 = new JLabel("Laborat\u00F3rio:");
@@ -372,6 +378,15 @@ public class TelaAdministrador extends JFrame {
 		});
 		LogoutBtn.setBounds(1233, 695, 89, 23);
 		contentPane.add(LogoutBtn);
+		
+		JButton btnVerTodos = new JButton("Ver Todos");
+		btnVerTodos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controleLaboratório.readJtableLaboratório(LaboratórioTable);
+			}
+		});
+		btnVerTodos.setBounds(996, 95, 107, 23);
+		contentPane.add(btnVerTodos);
 	}
 	
 }

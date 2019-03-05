@@ -46,6 +46,22 @@ public class ControleLaboratório {
 		ldao.Deletar(laboratorio);
 	}
 	
+	public void BuscarLaboratório(int numeroLab, JTable JTableLaboratório) {
+		LaboratórioDAO ldao = new LaboratórioDAO();
+		Laboratorio laboratorio = new Laboratorio();
+		laboratorio.setNumero(numeroLab);
+		DefaultTableModel modelo = (DefaultTableModel) JTableLaboratório.getModel();
+		modelo.setNumRows(0);
+		
+		for(Laboratorio l : ldao.BuscarLaboratorio(laboratorio)) {
+			modelo.addRow(new Object[] {
+					l.getIdLaboratorio(),
+					l.getNumero(),
+					l.getNome()
+			});
+		}
+	}
+	
 	
 	
 	

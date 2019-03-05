@@ -101,5 +101,33 @@ public class LaboratórioDAO {
 		}		
 	}
 	
+	public List<Laboratorio> BuscarLaboratorio(Laboratorio lab){
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		List<Laboratorio> ListaLaboratorios = new ArrayList<>();
+		
+		try {
+			//preapara o statement
+			stmt = con.prepareStatement("SELECT * FROM laboratório WHERE  NúmeroLaboratório= ?");
+			//Executa o statement
+			stmt.setInt(1, lab.getNumero());
+			rs = stmt.executeQuery();
+			
+			
+			while (rs.next()) {
+				Laboratorio laboratorio = new Laboratorio();
+				laboratorio.setIdLaboratorio(rs.getInt("idLaboratório"));
+				laboratorio.setNumero(rs.getInt("NúmeroLaboratório"));
+				laboratorio.setNome(rs.getString("NomeLaboratório"));
+				ListaLaboratorios.add(laboratorio);
+			}
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null,"Erro:" + e);
+		}finally {
+			ConnectionFactory.closeConnection(con, stmt);
+		}
+		return ListaLaboratorios;
+	}
 	
 }

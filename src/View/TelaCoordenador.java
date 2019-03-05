@@ -72,7 +72,13 @@ public class TelaCoordenador extends JFrame {
 		NumeroLaboratorioField.setColumns(10);
 		
 		JButton BuscarLaboratorioBtn = new JButton("Buscar");
-		BuscarLaboratorioBtn.setBounds(497, 42, 89, 23);
+		BuscarLaboratorioBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int NumeroLaboratorio = Integer.parseInt(NumeroLaboratorioField.getText());
+				controleLaboratorios.BuscarLaboratório(NumeroLaboratorio, JTableLaboratorios);
+			}
+		});
+		BuscarLaboratorioBtn.setBounds(497, 42, 115, 23);
 		contentPane.add(BuscarLaboratorioBtn);
 		
 		JTableLaboratorios = new JTable();
@@ -119,5 +125,14 @@ public class TelaCoordenador extends JFrame {
 		});
 		LogoutBtn.setBounds(1202, 677, 89, 23);
 		contentPane.add(LogoutBtn);
+		
+		JButton VerTodosBtn = new JButton("Ver Todos");
+		VerTodosBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controleLaboratorios.readJtableLaboratório(JTableLaboratorios);
+			}
+		});
+		VerTodosBtn.setBounds(497, 76, 115, 23);
+		contentPane.add(VerTodosBtn);
 	}
 }

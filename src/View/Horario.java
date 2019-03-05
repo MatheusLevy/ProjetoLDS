@@ -25,7 +25,6 @@ import java.awt.event.ActionEvent;
 
 
 public class Horario extends JFrame {
-	private static Horario UnicaInstancia;
 	private JPanel contentPane;
 	private JTextField NomeLaboratorioField;
 	private JTable HorárioTable;
@@ -62,7 +61,7 @@ public class Horario extends JFrame {
 	public Horario(Laboratorio lab) {
 		ControleHorario controleHorario = new ControleHorario();
 		
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 854, 669);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

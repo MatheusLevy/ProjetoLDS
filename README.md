@@ -40,3 +40,10 @@ PS: Dificuldade em preencher a tabela de horário com as materias do dia da sema
       - Resolvido problema de lógica para preencher a tabela de Horários de um Laboratório
       - Ajustes na classe modelo de horário e no banco de dados
 PS: Nenhuma dificuldade encontrada
+
+05/02 - Ver horário adicionado na tela do administrador
+      - Deletar horário adicionado a tela de horário
+      - Mensagem de erro ao tentar deletar um laboratório que possui um horário corrigido
+      - Corrigido linhas de códigos inuteis
+      - Excluido arquivos de modelo não usados
+PS: Nenhuma dificuldade encontrada

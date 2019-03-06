@@ -29,16 +29,7 @@ public class TelaLoginCoordenador extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		 try {
-	            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-	                if ("Nimbus".equals(info.getName())) {
-	                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-	                    break;
-	                }
-	            }
-	        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex ) {
-	        	System.err.println(ex);
-	        }
+	
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -65,12 +56,12 @@ public class TelaLoginCoordenador extends JFrame {
 		
 		JLabel UsuarioLabel = new JLabel("Usu\u00E1rio :");
 		UsuarioLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		UsuarioLabel.setBounds(56, 71, 58, 27);
+		UsuarioLabel.setBounds(43, 71, 71, 27);
 		contentPane.add(UsuarioLabel);
 		
 		JLabel SenhaLabel = new JLabel("Senha :");
 		SenhaLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		SenhaLabel.setBounds(66, 119, 58, 14);
+		SenhaLabel.setBounds(43, 122, 58, 14);
 		contentPane.add(SenhaLabel);
 		
 		JFormattedTextField UsuarioTextField = new JFormattedTextField();

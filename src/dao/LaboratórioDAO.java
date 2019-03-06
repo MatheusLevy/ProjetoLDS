@@ -12,6 +12,10 @@ import javax.swing.JOptionPane;
 import Controller.Exceções;
 import connection.ConnectionFactory;
 import model.Laboratorio;
+/*
+ * @author Matheus Levy
+ * @GitHub github.com/MatheusLevy
+ */
 
 public class LaboratórioDAO {
 

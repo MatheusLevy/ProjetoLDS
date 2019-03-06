@@ -3,6 +3,10 @@ package View;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
+/*
+ * @author Matheus Levy
+ * @GitHub github.com/MatheusLevy
+ */
 
 public class ControleEntrada extends PlainDocument{
 	private static final long serialVersionUID = 1L;

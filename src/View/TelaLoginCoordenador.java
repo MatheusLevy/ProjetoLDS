@@ -14,6 +14,10 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
+/*
+ * @author Matheus Levy
+ * @GitHub github.com/MatheusLevy
+ */
 
 public class TelaLoginCoordenador extends JFrame {
 

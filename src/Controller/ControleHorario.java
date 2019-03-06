@@ -2,11 +2,15 @@ package Controller;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
 import View.Horario;
 import dao.HorárioDAO;
 import model.Horário;
 import model.Laboratorio;
+/*
+ * @author Matheus Levy
+ * @GitHub github.com/MatheusLevy
+ */
+
 public class ControleHorario {
 
 	public void AbrirHorarios(String IdLaboratorio, String Nome, String Numero) {

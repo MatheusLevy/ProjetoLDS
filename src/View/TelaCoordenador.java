@@ -1,6 +1,5 @@
 package View;
 
-
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -22,6 +21,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+/*
+ * @author Matheus Levy
+ * @GitHub github.com/MatheusLevy
+ */
 
 public class TelaCoordenador extends JFrame {
 

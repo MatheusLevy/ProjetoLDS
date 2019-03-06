@@ -8,6 +8,10 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 import connection.ConnectionFactory;
+/*
+ * @author Matheus Levy
+ * @GitHub github.com/MatheusLevy
+ */
 
 public class AdministradorDAO {
 		

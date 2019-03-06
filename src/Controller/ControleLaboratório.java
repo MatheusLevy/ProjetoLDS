@@ -5,7 +5,10 @@ import javax.swing.table.DefaultTableModel;
 
 import dao.LaboratórioDAO;
 import model.Laboratorio;
-
+/*
+ * @author Matheus Levy
+ * @GitHub github.com/MatheusLevy
+ */
 
 public class ControleLaboratório {
 	

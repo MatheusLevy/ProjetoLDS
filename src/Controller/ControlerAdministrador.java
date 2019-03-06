@@ -5,6 +5,10 @@ import javax.swing.JOptionPane;
 import View.TelaAdministrador;
 import View.TelaLoginCoordenador;
 import dao.AdministradorDAO;
+/*
+ * @author Matheus Levy
+ * @GitHub github.com/MatheusLevy
+ */
 
 public class ControlerAdministrador {
 	

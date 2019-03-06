@@ -3,12 +3,14 @@ package Controller;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
 import View.TelaCoordenador;
 import View.TelaLoginCoordenador;
 import dao.CoordenadorDAO;
 import model.Coordenador;
-
+/*
+ * @author Matheus Levy
+ * @GitHub github.com/MatheusLevy
+ */
 
 public class ControleCoordenador {
 	

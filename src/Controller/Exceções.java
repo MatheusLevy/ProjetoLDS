@@ -3,6 +3,10 @@ package Controller;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+/*
+ * @author Matheus Levy
+ * @GitHub github.com/MatheusLevy
+ */
 
 public class Exceções {
 

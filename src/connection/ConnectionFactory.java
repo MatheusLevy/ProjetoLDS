@@ -6,7 +6,10 @@ import java.sql.SQLException;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
+/*
+ * @author Matheus Levy
+ * @GitHub github.com/MatheusLevy
+ */
 public class ConnectionFactory {
 	
 	//Criando os Dados a serem passados para a conecção

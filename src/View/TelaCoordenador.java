@@ -55,8 +55,8 @@ public class TelaCoordenador extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaCoordenador() {
-		ControleLaboratório controleLaboratorios = new ControleLaboratório();
-		ControleHorario controleHorario = new ControleHorario();
+		ControleLaboratório controleLaboratorios = ControleLaboratório.getInstance();
+		ControleHorario controleHorario = ControleHorario.getInstance();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1336, 768);

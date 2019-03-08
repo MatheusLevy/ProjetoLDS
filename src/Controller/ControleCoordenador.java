@@ -13,11 +13,7 @@ import model.Coordenador;
  */
 
 public class ControleCoordenador {
-	
-	
-	public ControleCoordenador() {
-		
-	}
+	private static ControleCoordenador UnicaInstancia;
 	
 	public boolean autenticar(String text, String senha) {
 		CoordenadorDAO dao = new CoordenadorDAO();
@@ -90,5 +86,11 @@ public class ControleCoordenador {
 					c.getSenha()
 			});
 		}
+	}
+	
+	public static synchronized ControleCoordenador getInstance() {
+		if(UnicaInstancia == null)
+			UnicaInstancia = new ControleCoordenador();
+		return UnicaInstancia;
 	}
 }

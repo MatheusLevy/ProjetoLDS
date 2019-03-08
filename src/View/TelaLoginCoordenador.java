@@ -47,6 +47,8 @@ public class TelaLoginCoordenador extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaLoginCoordenador() {
+		ControlerAdministrador controleAdministrador = ControlerAdministrador.getInstance();
+		ControleCoordenador controleCoordenador = ControleCoordenador.getInstance();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -82,16 +84,12 @@ public class TelaLoginCoordenador extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 			if(CheckBoxAdministrador.isSelected()) {
 				String senha = new String(SenhaField.getPassword());
-				ControlerAdministrador controle = new ControlerAdministrador();
-				if(controle.autenticar(UsuarioTextField.getText(), senha)) {
+				if(controleAdministrador.autenticar(UsuarioTextField.getText(), senha)) {
 					dispose();
 			     }
 				}else {
 					String senha = new String(SenhaField.getPassword());
-					//Cria um Controlador para tirar a responsabilidade da autenticação da Tela
-					ControleCoordenador controle = new ControleCoordenador();
-					//Chama o Método autenticar do controle de coordenador e se for verdadeiro ele fecha a tela de login
-					if(controle.autenticar(UsuarioTextField.getText(), senha)) {
+					if(controleCoordenador.autenticar(UsuarioTextField.getText(), senha)) {
 						dispose();
 				}
 				

@@ -12,12 +12,12 @@ import model.Laboratorio;
 
 public class ControleLaboratório {
 	
-	
+	private static ControleLaboratório UnicaInstancia;
 
 	public void readJtableLaboratório(JTable JTableLaboratório){
 		DefaultTableModel modelo = (DefaultTableModel) JTableLaboratório.getModel();
 		modelo.setNumRows(0);
-		LaboratórioDAO  ldao = new LaboratórioDAO();
+		LaboratórioDAO  ldao = LaboratórioDAO.getInstance();
 		
 		for(Laboratorio l : ldao.readLaboratórios()) {
 			modelo.addRow(new Object[] {
@@ -29,7 +29,7 @@ public class ControleLaboratório {
 	}
 	
 	public void inserirLaboratório(int Número, String Nome) {
-		LaboratórioDAO ldao = new LaboratórioDAO();
+		LaboratórioDAO ldao = LaboratórioDAO.getInstance();
 		Laboratorio laboratorio = new Laboratorio();
 		laboratorio.setNumero(Número);
 		laboratorio.setNome(Nome);
@@ -37,20 +37,20 @@ public class ControleLaboratório {
 	}
 	
 	public void AtualizarLaboratório(int IdLaboratório, int Número, String Nome) {
-		LaboratórioDAO ldao = new LaboratórioDAO();
+		LaboratórioDAO ldao = LaboratórioDAO.getInstance();
 		Laboratorio laboratorio = new Laboratorio(IdLaboratório, Nome, Número);
 		ldao.Atualiza(laboratorio);
 	}
 	
 	public void DeletarLaboratório(int IdLaboratório) {
-		LaboratórioDAO ldao = new LaboratórioDAO();
+		LaboratórioDAO ldao = LaboratórioDAO.getInstance();
 		Laboratorio laboratorio = new Laboratorio();
 		laboratorio.setIdLaboratorio(IdLaboratório);
 		ldao.Deletar(laboratorio);
 	}
 	
 	public void BuscarLaboratório(int numeroLab, JTable JTableLaboratório) {
-		LaboratórioDAO ldao = new LaboratórioDAO();
+		LaboratórioDAO ldao = LaboratórioDAO.getInstance();
 		Laboratorio laboratorio = new Laboratorio();
 		laboratorio.setNumero(numeroLab);
 		DefaultTableModel modelo = (DefaultTableModel) JTableLaboratório.getModel();
@@ -66,7 +66,11 @@ public class ControleLaboratório {
 	}
 	
 	
-	
+	public static synchronized ControleLaboratório getInstance() {
+		if(UnicaInstancia == null)
+			UnicaInstancia = new ControleLaboratório();
+		return UnicaInstancia;
+	}
 	
 	
 	

@@ -18,7 +18,8 @@ import model.Laboratorio;
  */
 
 public class LaboratórioDAO {
-
+	
+	private static LaboratórioDAO UnicaInstancia;
 	
 	public List<Laboratorio> readLaboratórios(){
 		Connection con = ConnectionFactory.getConnection();
@@ -132,6 +133,12 @@ public class LaboratórioDAO {
 			ConnectionFactory.closeConnection(con, stmt);
 		}
 		return ListaLaboratorios;
+	}
+	
+	public static synchronized LaboratórioDAO getInstance() {
+		if(UnicaInstancia == null)
+			UnicaInstancia = new LaboratórioDAO();
+		return UnicaInstancia;
 	}
 	
 }

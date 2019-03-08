@@ -11,7 +11,7 @@ import dao.AdministradorDAO;
  */
 
 public class ControlerAdministrador {
-	
+	public static ControlerAdministrador UnicaInstancia;
 	public boolean autenticar(String text, String senha) {
 		AdministradorDAO dao = AdministradorDAO.getInstance();
 		
@@ -31,5 +31,12 @@ public class ControlerAdministrador {
 		TelaLoginCoordenador TelaLogin = new TelaLoginCoordenador();
 		TelaLogin.setLocationRelativeTo(null);
 		TelaLogin.setVisible(true);
+	}
+	
+	public static synchronized ControlerAdministrador getInstance() {
+		if(UnicaInstancia == null) {
+			UnicaInstancia = new ControlerAdministrador();
+		}
+		return UnicaInstancia;
 	}
 }

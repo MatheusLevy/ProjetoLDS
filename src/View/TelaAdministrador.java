@@ -66,8 +66,8 @@ public class TelaAdministrador extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaAdministrador() {
-		ControleCoordenador controleCoordenador = new ControleCoordenador();
-		ControleLaboratório controleLaboratório = new ControleLaboratório();
+		ControleCoordenador controleCoordenador = ControleCoordenador.getInstance();
+		ControleLaboratório controleLaboratório = ControleLaboratório.getInstance();
 		
 		setMaximumSize(new Dimension(1920, 1080));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

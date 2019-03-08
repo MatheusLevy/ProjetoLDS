@@ -64,7 +64,7 @@ public class Horario extends JFrame {
 	 * Create the frame.
 	 */
 	public Horario(Laboratorio lab) {
-		ControleHorario controleHorario = new ControleHorario();
+		ControleHorario controleHorario = ControleHorario.getInstance();
 		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 854, 669);

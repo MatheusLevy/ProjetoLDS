@@ -47,3 +47,7 @@ PS: Nenhuma dificuldade encontrada
       - Corrigido linhas de códigos inuteis
       - Excluido arquivos de modelo não usados
 PS: Nenhuma dificuldade encontrada
+
+07/02 - Ajuste de mensagem de erro
+      - Exclusão de modelos inutilizados
+      - Otimização de performace, utiliza meno mémoria ram com a utilização de sigleton

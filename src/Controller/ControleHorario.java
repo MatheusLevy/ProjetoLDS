@@ -13,6 +13,8 @@ import model.Laboratorio;
 
 public class ControleHorario {
 
+	private static ControleHorario UnicaInstancia;
+	
 	public void AbrirHorarios(String IdLaboratorio, String Nome, String Numero) {
 		Laboratorio lab = new Laboratorio(Integer.parseInt(IdLaboratorio),Nome, Integer.parseInt(Numero));
 		Horario frame = new Horario(lab);
@@ -74,5 +76,10 @@ public class ControleHorario {
 		Horário horario = new Horário();
 		horario.setIdHorario(IdHorario);
 		hdao.Deletar(horario);
+	}
+	public static synchronized ControleHorario getInstance() {
+		if(UnicaInstancia == null)
+			UnicaInstancia = new ControleHorario();
+		return UnicaInstancia;
 	}
 }

@@ -59,7 +59,7 @@ public class LaboratórioDAO {
 			stmt.executeUpdate();
 			JOptionPane.showMessageDialog(null,"Salvo com sucesso"); // Mensagem de Sucesso
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null,"Erro ao salvar: "+e); //Mensagem de Erro
+			new Exceções().VerificarExceçãoLaboratorio(e);
 		}finally {
 			ConnectionFactory.closeConnection(con, stmt);
 		}		

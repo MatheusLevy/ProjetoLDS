@@ -51,3 +51,4 @@ PS: Nenhuma dificuldade encontrada
 07/02 - Ajuste de mensagem de erro
       - Exclusão de modelos inutilizados
       - Otimização de performace, utiliza meno mémoria ram com a utilização de sigleton
+PS: Nenhuma dificuldade encontrada

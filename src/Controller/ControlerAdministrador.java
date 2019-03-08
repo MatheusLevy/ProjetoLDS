@@ -13,7 +13,7 @@ import dao.AdministradorDAO;
 public class ControlerAdministrador {
 	
 	public boolean autenticar(String text, String senha) {
-		AdministradorDAO dao = new AdministradorDAO();
+		AdministradorDAO dao = AdministradorDAO.getInstance();
 		
 		if(dao.checklogin(text, senha)){
 			TelaAdministrador telaAdmin = new TelaAdministrador();

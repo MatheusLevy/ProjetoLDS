@@ -16,7 +16,7 @@ import java.sql.ResultSet;
  * @GitHub github.com/MatheusLevy
  */
 public class CoordenadorDAO {
-	  
+	  private static CoordenadorDAO UnicaInstancia;
 	
 	public void create(Coordenador c) {
 		//Cria a conecção e o statement
@@ -161,6 +161,12 @@ public class CoordenadorDAO {
 			ConnectionFactory.closeConnection(con, stmt);
 		}
 		return ListaCoordenadores;
+	}
+	
+	public static synchronized CoordenadorDAO getInstance() {
+		if(UnicaInstancia == null)
+			UnicaInstancia = new CoordenadorDAO();
+		return UnicaInstancia;
 	}
 	
 }

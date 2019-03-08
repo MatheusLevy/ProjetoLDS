@@ -14,7 +14,7 @@ import connection.ConnectionFactory;
  */
 
 public class AdministradorDAO {
-		
+	private static AdministradorDAO UnicaInstancia;
 	
 	public boolean checklogin(String usuario, String senha){
 		//Cria a conecção e o statement
@@ -42,5 +42,10 @@ public class AdministradorDAO {
 			ConnectionFactory.closeConnection(con, stmt, rs); //Fecha conecção
 		}
 		return check;
+	}
+	public static synchronized AdministradorDAO getInstance() {
+		if(UnicaInstancia == null )
+			UnicaInstancia = new AdministradorDAO();
+		return UnicaInstancia;
 	}
 }

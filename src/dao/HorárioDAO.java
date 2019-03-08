@@ -16,7 +16,9 @@ import model.Laboratorio;
  */
 
 public class HorárioDAO {
-		
+	
+	private static HorárioDAO UnicaInstancia;
+
 	public List<Horário> readHorario(int idLaboratório){
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
@@ -130,6 +132,12 @@ public class HorárioDAO {
 		}finally {
 			ConnectionFactory.closeConnection(con, stmt);
 		}		
+	}
+	
+	public static synchronized HorárioDAO getInstance() {
+		if(UnicaInstancia == null)
+			UnicaInstancia = new HorárioDAO();
+		return UnicaInstancia;
 	}
 	
 }

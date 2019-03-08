@@ -23,7 +23,7 @@ public class ControleHorario {
 	public void readJtableHorario(JTable JtableHorario,int IdLaboratorio) {
 		DefaultTableModel modelo = (DefaultTableModel) JtableHorario.getModel();
 		modelo.setNumRows(0);
-		HorárioDAO  hdao = new HorárioDAO();
+		HorárioDAO  hdao = HorárioDAO.getInstance();
 		
 		for(Horário h : hdao.readHorario(IdLaboratorio)) {
 			modelo.addRow(new Object[] {
@@ -40,7 +40,7 @@ public class ControleHorario {
 	
 	public void atualizar(int idHorário, String Horário, String Segunda, String Terça, String Quarta, String Quinta, String Sexta
 			, int numeroLab) {
-		HorárioDAO hdao = new HorárioDAO();
+		HorárioDAO hdao = HorárioDAO.getInstance();
 		Horário horario = new Horário();
 		Laboratorio lab = new Laboratorio();
 		lab.setNumero(numeroLab);
@@ -56,7 +56,7 @@ public class ControleHorario {
 	
 	public void criarhorario(String horarios, String segunda, String terça, String quarta, String quinta, String sexta, int idLaboratório) {
 		
-			HorárioDAO hdao = new HorárioDAO();
+			HorárioDAO hdao = HorárioDAO.getInstance();
 			Horário horario = new Horário();
 			Laboratorio lab = new Laboratorio();
 			horario.setHorario(horarios);
@@ -70,7 +70,7 @@ public class ControleHorario {
 	}
 	
 	public void DeletarHorario(int IdHorario) {
-		HorárioDAO hdao = new HorárioDAO();
+		HorárioDAO hdao = HorárioDAO.getInstance();
 		Horário horario = new Horário();
 		horario.setIdHorario(IdHorario);
 		hdao.Deletar(horario);

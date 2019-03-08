@@ -37,7 +37,7 @@ public class ControleCoordenador {
 	public void readJtableCoordenador(JTable JTableCoordenadores){
 		DefaultTableModel modelo = (DefaultTableModel) JTableCoordenadores.getModel();
 		modelo.setNumRows(0);
-		CoordenadorDAO  cdao = new CoordenadorDAO();
+		CoordenadorDAO  cdao = CoordenadorDAO.getInstance();
 		
 		for(Coordenador c : cdao.read()) {
 			modelo.addRow(new Object[] {
@@ -49,7 +49,7 @@ public class ControleCoordenador {
 	}
 	
 	public void inserirCoordenador(String Usuário, String Senha) {
-		CoordenadorDAO cdao = new CoordenadorDAO();
+		CoordenadorDAO cdao = CoordenadorDAO.getInstance();
 		Coordenador coordenador = new Coordenador();
 		coordenador.setUsuario(Usuário);
 		coordenador.setSenha(Senha);
@@ -57,14 +57,14 @@ public class ControleCoordenador {
 	}
 	
 	public void atualizarCoordenador(int IdCoordenador, String Usuário, String Senha) {
-		CoordenadorDAO cdao = new CoordenadorDAO();
+		CoordenadorDAO cdao = CoordenadorDAO.getInstance();
 		Coordenador coordenador = new Coordenador(IdCoordenador,Usuário,Senha);
 		cdao.Atualizar(coordenador);
 		
 	}
 	
 	public void deletarCoordenador(int idCoordenador) {
-		CoordenadorDAO cdao = new CoordenadorDAO();
+		CoordenadorDAO cdao = CoordenadorDAO.getInstance();
 		Coordenador coordenador = new Coordenador();
 		coordenador.setIdCoordenador(idCoordenador);
 		cdao.Deletar(coordenador);
@@ -77,7 +77,7 @@ public class ControleCoordenador {
 	}
 	
 	public void BuscarCoordenador(String Usuario, JTable JTableLaboratório) {
-		CoordenadorDAO cdao = new CoordenadorDAO();
+		CoordenadorDAO cdao = CoordenadorDAO.getInstance();
 		Coordenador coordenador = new Coordenador();
 		coordenador.setUsuario(Usuario);
 		DefaultTableModel modelo = (DefaultTableModel) JTableLaboratório.getModel();

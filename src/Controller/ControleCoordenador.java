@@ -17,12 +17,11 @@ public class ControleCoordenador {
 	
 	public boolean autenticar(String text, String senha) {
 		CoordenadorDAO dao = new CoordenadorDAO();
-		
 		if(dao.checklogin(text, senha)){
 			 TelaCoordenador telaCoordenador = new TelaCoordenador();
 			 telaCoordenador.setVisible(true);
 			 telaCoordenador.setExtendedState(telaCoordenador.MAXIMIZED_BOTH);
-			return true;
+			 return true;
 		}else {
 			JOptionPane.showMessageDialog(null,"Login Incorreto");
 			return false;
@@ -34,7 +33,6 @@ public class ControleCoordenador {
 		DefaultTableModel modelo = (DefaultTableModel) JTableCoordenadores.getModel();
 		modelo.setNumRows(0);
 		CoordenadorDAO  cdao = CoordenadorDAO.getInstance();
-		
 		for(Coordenador c : cdao.read()) {
 			modelo.addRow(new Object[] {
 					c.getIdCoordenador(),
@@ -78,7 +76,6 @@ public class ControleCoordenador {
 		coordenador.setUsuario(Usuario);
 		DefaultTableModel modelo = (DefaultTableModel) JTableLaboratório.getModel();
 		modelo.setNumRows(0);
-		
 		for(Coordenador c : cdao.BuscarCoordenador(coordenador)) {
 			modelo.addRow(new Object[] {
 					c.getIdCoordenador(),

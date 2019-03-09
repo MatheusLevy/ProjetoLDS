@@ -18,7 +18,6 @@ public class ControleLaboratório {
 		DefaultTableModel modelo = (DefaultTableModel) JTableLaboratório.getModel();
 		modelo.setNumRows(0);
 		LaboratórioDAO  ldao = LaboratórioDAO.getInstance();
-		
 		for(Laboratorio l : ldao.readLaboratórios()) {
 			modelo.addRow(new Object[] {
 					l.getIdLaboratorio(),
@@ -55,7 +54,6 @@ public class ControleLaboratório {
 		laboratorio.setNumero(numeroLab);
 		DefaultTableModel modelo = (DefaultTableModel) JTableLaboratório.getModel();
 		modelo.setNumRows(0);
-		
 		for(Laboratorio l : ldao.BuscarLaboratorio(laboratorio)) {
 			modelo.addRow(new Object[] {
 					l.getIdLaboratorio(),

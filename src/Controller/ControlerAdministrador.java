@@ -11,10 +11,12 @@ import dao.AdministradorDAO;
  */
 
 public class ControlerAdministrador {
+	
 	public static ControlerAdministrador UnicaInstancia;
+	
+	@SuppressWarnings("static-access")
 	public boolean autenticar(String text, String senha) {
 		AdministradorDAO dao = AdministradorDAO.getInstance();
-		
 		if(dao.checklogin(text, senha)){
 			TelaAdministrador telaAdmin = new TelaAdministrador();
 			telaAdmin.setExtendedState(telaAdmin.MAXIMIZED_BOTH);
@@ -24,7 +26,6 @@ public class ControlerAdministrador {
 			JOptionPane.showMessageDialog(null,"Login Incorreto");
 			return false;
 		}
-		
 	}
 	
 	public void Logout() {

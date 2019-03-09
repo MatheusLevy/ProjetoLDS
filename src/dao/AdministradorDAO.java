@@ -14,6 +14,7 @@ import connection.ConnectionFactory;
  */
 
 public class AdministradorDAO {
+	
 	private static AdministradorDAO UnicaInstancia;
 	
 	public boolean checklogin(String usuario, String senha){
@@ -22,7 +23,6 @@ public class AdministradorDAO {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		boolean check = false;
-		
 		try {
 			//Cria e prepara o statement
 			stmt = con.prepareStatement("SELECT * FROM administrador WHERE UsuárioAdministrador = ? and SenhaAdministrador = ? ");
@@ -30,12 +30,9 @@ public class AdministradorDAO {
 			stmt.setString(2, senha);
 			//Executando o statement e colocando o resultado dentro do ResultSet	
 			rs = stmt.executeQuery();
-			
 			//Precorrendo o resultado e adicionando em uma Lista de Objetos
-			if(rs.next()) {
+			if(rs.next()) 
 				check = true;
-				
-			}
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null,"Erro ao buscar no banco de dados: "+e); //Mensagem de Erro
 		}finally {
@@ -43,6 +40,7 @@ public class AdministradorDAO {
 		}
 		return check;
 	}
+	
 	public static synchronized AdministradorDAO getInstance() {
 		if(UnicaInstancia == null )
 			UnicaInstancia = new AdministradorDAO();

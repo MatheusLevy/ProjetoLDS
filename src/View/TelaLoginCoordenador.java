@@ -84,17 +84,15 @@ public class TelaLoginCoordenador extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 			if(CheckBoxAdministrador.isSelected()) {
 				String senha = new String(SenhaField.getPassword());
-				if(controleAdministrador.autenticar(UsuarioTextField.getText(), senha)) {
+				if(controleAdministrador.autenticar(UsuarioTextField.getText(), senha))
 					dispose();
-			     }
 				}else {
 					String senha = new String(SenhaField.getPassword());
 					if(controleCoordenador.autenticar(UsuarioTextField.getText(), senha)) {
 						dispose();
 				}
-				
 			}
-			}
+		}
 		});
 		
 		LoginBtn.setBounds(161, 170, 109, 33);

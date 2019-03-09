@@ -241,7 +241,6 @@ public class TelaAdministrador extends JFrame {
 					controleCoordenador.inserirCoordenador(UsárioCoordenadorField.getText(), SenhaCoordenadorField.getText());
 				}
 				controleCoordenador.readJtableCoordenador(JTableCoordenadores);
-				
 			}
 		});
 		SalvarCoordenadorBtn.setBounds(51, 635, 89, 23);
@@ -260,7 +259,7 @@ public class TelaAdministrador extends JFrame {
 				}else {
 					JOptionPane.showMessageDialog(null,"Nenhum coordenador selecionado");
 				}
-				}
+			}
 		});
 		DeletarCoordenadorBtn.setBounds(185, 635, 89, 23);
 		contentPane.add(DeletarCoordenadorBtn);
@@ -351,7 +350,7 @@ public class TelaAdministrador extends JFrame {
 			}else {
 				JOptionPane.showMessageDialog(null, "Nenhum laboratório selecionado");
 			}
-				}
+		}
 		});
 		DeletarLaboratório.setBounds(861, 635, 89, 23);
 		contentPane.add(DeletarLaboratório);

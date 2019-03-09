@@ -18,11 +18,10 @@ public class ConnectionFactory {
 	private static final String USER = "root";
 	private static final String PASS = "";
 	
-	//método que cria a conecção 
+	 //método que cria a conecção 
 	public static Connection getConnection() {
 		try {
 			Class.forName(DRIVER);
-			
 			return DriverManager.getConnection(URL, USER, PASS);
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new RuntimeException("Erro na conexão com o Banco de Dados:", e);
@@ -30,46 +29,39 @@ public class ConnectionFactory {
 	}
 	
 	public static void closeConnection(Connection con) {
-		//Se a conecção estiver aberta ela é fechada
+		    //Se a conecção estiver aberta ela é fechada
 			try {
-					if(con!=null) {
+					if(con!=null) 
 						con.close();
-					}
 				}catch(SQLException ex) {
 					throw new RuntimeException("Erro ao fechar a conexão com o Banco de Dados:", ex);
 			}
-			
-			}
+	}
 	
-		//Sobrecarga do metodo CloseConnection
+	//Sobrecarga do metodo CloseConnection
 	public static void closeConnection(Connection con, PreparedStatement stmt) {
-		//Chama o metodo CloseConnection() e fecha a conecção
+	    	//Chama o metodo CloseConnection() e fecha a conecção
 			closeConnection(con);
 			try {
-					if(stmt!=null) {
+					if(stmt!=null) 
 						stmt.close();
-					}
 				}catch(SQLException ex) {
 					throw new RuntimeException("Erro ao fechar a conexão com o Banco de Dados:", ex);
 			}
 			
-			}
+	}
 	
-		//Sobrecarga do metodo CloseConnection
+	//Sobrecarga do metodo CloseConnection
 	public static void closeConnection(Connection con, PreparedStatement stmt, ResultSet rs) {
-		//Chama o metodo CloseConnection() e fecha a conecção e o statatement
+	    	//Chama o metodo CloseConnection() e fecha a conecção e o statatement
 			closeConnection(con, stmt);
 			try {
-					if(rs!=null) {
+					if(rs!=null) 
 						rs.close();
-					}
 				}catch(SQLException ex) {
 					throw new RuntimeException("Erro ao fechar a conexão com o Banco de Dados:", ex);
 			}
-			
-			}
-	
-	
-		}
+	}
+}
 	
 	

@@ -26,7 +26,6 @@ public class ControleHorario {
 		DefaultTableModel modelo = (DefaultTableModel) JtableHorario.getModel();
 		modelo.setNumRows(0);
 		HorárioDAO  hdao = HorárioDAO.getInstance();
-		
 		for(Horário h : hdao.readHorario(IdLaboratorio)) {
 			modelo.addRow(new Object[] {
 					h.getIdHorario(),
@@ -40,8 +39,7 @@ public class ControleHorario {
 		}
 	}
 	
-	public void atualizar(int idHorário, String Horário, String Segunda, String Terça, String Quarta, String Quinta, String Sexta
-			, int numeroLab) {
+	public void atualizar(int idHorário, String Horário, String Segunda, String Terça, String Quarta, String Quinta, String Sexta, int numeroLab) {
 		HorárioDAO hdao = HorárioDAO.getInstance();
 		Horário horario = new Horário();
 		Laboratorio lab = new Laboratorio();
@@ -57,7 +55,6 @@ public class ControleHorario {
 	}
 	
 	public void criarhorario(String horarios, String segunda, String terça, String quarta, String quinta, String sexta, int idLaboratório) {
-		
 			HorárioDAO hdao = HorárioDAO.getInstance();
 			Horário horario = new Horário();
 			Laboratorio lab = new Laboratorio();
@@ -77,6 +74,7 @@ public class ControleHorario {
 		horario.setIdHorario(IdHorario);
 		hdao.Deletar(horario);
 	}
+	
 	public static synchronized ControleHorario getInstance() {
 		if(UnicaInstancia == null)
 			UnicaInstancia = new ControleHorario();

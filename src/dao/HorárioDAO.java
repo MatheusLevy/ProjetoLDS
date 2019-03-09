@@ -24,7 +24,6 @@ public class HorárioDAO {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		List<Horário> ListaHorarios = new ArrayList<>();
-		
 		try {
 			stmt = con.prepareStatement("SELECT horário.idHorário,horário.Horário,horário.Segunda, horário.Terça, horário.Quarta, horário.Quinta, horário. Sexta\r\n" + 
 					", laboratório.NúmeroLaboratório\r\n" + 
@@ -33,8 +32,6 @@ public class HorárioDAO {
 					"WHERE laboratório.idLaboratório = ?;");
 			stmt.setInt(1, idLaboratório);
 			rs = stmt.executeQuery();
-			
-			
 			while (rs.next()) {
 				Horário horario = new Horário();
 				horario.setIdHorario(rs.getInt("idHorário"));
@@ -58,7 +55,6 @@ public class HorárioDAO {
 	public void Atualizar(Horário horario,Laboratorio lab) {
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
-		
 		try {
 			//preapara o statement
 			stmt = con.prepareStatement("UPDATE horário\r\n" + 
@@ -81,14 +77,12 @@ public class HorárioDAO {
 			stmt.setInt(7, horario.getIdHorario());
 			stmt.setInt(8, lab.getNumero());
 			stmt.executeUpdate();
-			
 			JOptionPane.showMessageDialog(null,"Atualizado com sucesso"); // Mensagem de Sucesso
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null,e);
 		}finally {
 			ConnectionFactory.closeConnection(con, stmt);
 		}		
-		
 	}
 	
 	public void Inserir(Horário horario, Laboratorio lab) {
@@ -106,14 +100,12 @@ public class HorárioDAO {
 			stmt.setInt(7, lab.getIdLaboratorio());
 		    //Executa o statement
 			stmt.executeUpdate();
-			
 			JOptionPane.showMessageDialog(null,"Inserido com sucesso"); // Mensagem de Sucesso
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null,e);
 		}finally {
 			ConnectionFactory.closeConnection(con, stmt);
-		}		
-		
+		}			
 	}
 	
 	public void Deletar(Horário horario) {
@@ -125,7 +117,6 @@ public class HorárioDAO {
 			stmt.setInt(1, horario.getIdHorario());
 		    //Executa o statement
 			stmt.executeUpdate();
-			
 			JOptionPane.showMessageDialog(null,"Deletado com sucesso"); // Mensagem de Sucesso
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null,"Erro ao deletar em: " + e);
@@ -139,6 +130,5 @@ public class HorárioDAO {
 			UnicaInstancia = new HorárioDAO();
 		return UnicaInstancia;
 	}
-	
 }
 	

@@ -20,7 +20,6 @@ public class Horário {
 		this.Sexta = Sexta;
 	}
 	public Horário() {
-		
 	}
 	public int getIdHorario() {
 		return idHorario;

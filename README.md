@@ -18,7 +18,7 @@ PS: Nenhuma dificuldade encontrada
 02/03 - Criado Tela do Coordenador
 PS: Nenhuma dificuldade encontrada
 
-03/02 - Deletar Coordenador
+03/03 - Deletar Coordenador
       - Deletar Laboratório
       - Editar Coordenador
       - Editar Laboratório
@@ -29,7 +29,7 @@ PS: Nenhuma dificuldade encontrada
       - Feito alterações nos model como criação de sobrecarga de construtor
 PS: Dificuldade em preencher a tabela de horário com as materias do dia da semana corretamente
 
-04/02 - Correção de bugs anteriores
+04/03 - Correção de bugs anteriores
       - Alterar Horário de um laboratório
       - Exibir os horários de um laboratório
       - Buscar Laboratório na Tela de Coordenador
@@ -41,14 +41,17 @@ PS: Dificuldade em preencher a tabela de horário com as materias do dia da sema
       - Ajustes na classe modelo de horário e no banco de dados
 PS: Nenhuma dificuldade encontrada
 
-05/02 - Ver horário adicionado na tela do administrador
+05/03 - Ver horário adicionado na tela do administrador
       - Deletar horário adicionado a tela de horário
       - Mensagem de erro ao tentar deletar um laboratório que possui um horário corrigido
       - Corrigido linhas de códigos inuteis
       - Excluido arquivos de modelo não usados
 PS: Nenhuma dificuldade encontrada
 
-07/02 - Ajuste de mensagem de erro
+07/03 - Ajuste de mensagem de erro
       - Exclusão de modelos inutilizados
       - Otimização de performace, utiliza meno mémoria ram com a utilização de sigleton
 PS: Nenhuma dificuldade encontrada
+
+08/03 - Inserido o singleton para a classe exceções
+      - Organização de código fonte
